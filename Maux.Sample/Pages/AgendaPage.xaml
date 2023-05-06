@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<maux:MauxShellPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maux="clr-namespace:Maux;assembly=Maux.Mvvm"
+             xmlns:viewModels="clr-namespace:Maux.Sample.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Maux.Sample.Pages.AgendaPage"
+             x:DataType="viewModels:AgendaPageModel"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding PrevDayCommand}" Order="Primary">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIcons"
+                    Glyph="&#xe5cb;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding NextDayCommand}" Order="Primary">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIcons"
+                    Glyph="&#xe5cc;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Appointments}" Margin="0,4">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:AppointmentViewModel">
+                    <VerticalStackLayout Padding="8,4">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding 
+                                        Source={RelativeSource AncestorType={x:Type viewModels:AgendaPageModel}}, 
+                                        Path=OpenAppointmentCommand, 
+                                        Mode=OneTime}" CommandParameter="{Binding .}" />
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Border 
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16,4,4,16"
+                            Background="{StaticResource White}">
+                            <Border.Shadow>
+                                <Shadow Brush="Black"
+                                    Offset="0,0"
+                                    Radius="8"
+                                    Opacity="0.2" />
+                            </Border.Shadow>
+                            <Grid ColumnDefinitions="48,*,80" RowDefinitions="22,18" Padding="8" CompressedLayout.IsHeadless="True">
+                                <toolkit:AvatarView 
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Row="0"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    ImageSource="{Binding Customer.AvatarUrl}" />
+                                <Label FontSize="16"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       Text="{Binding Customer.FullName}" 
+                                       LineBreakMode="TailTruncation"/>
+                                <Label 
+                                    Grid.Column="2"
+                                    Grid.Row="0"
+                                    FontSize="Caption"
+                                    Text="{Binding Time}"
+                                    HorizontalTextAlignment="End"
+                                    VerticalTextAlignment="Center"
+                                    FontFamily="OpenSansSemibold"
+                                    />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    Text="{Binding Title}"
+                                    FontSize="Caption"
+                                    LineBreakMode="NoWrap"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</maux:MauxShellPage>

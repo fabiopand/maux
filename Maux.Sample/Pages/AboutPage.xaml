@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<maux:MauxShellPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maux="clr-namespace:Maux;assembly=Maux.Mvvm"
+             xmlns:viewModels="using:Maux.Sample.ViewModels"
+             x:Class="Maux.Sample.Pages.AboutPage"
+             x:DataType="viewModels:AboutPageModel"
+             Title="About">
+    <VerticalStackLayout Padding="48">
+        <Label 
+            Text="This is the about page"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            Text="Go to tomorrow's first appointment"
+            Command="{Binding NavigateToTomorrowFirstAppointmentCommand}"
+            />
+    </VerticalStackLayout>
+</maux:MauxShellPage>

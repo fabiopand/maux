@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<maux:MauxShellPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maux="clr-namespace:Maux;assembly=Maux.Mvvm"
+             xmlns:viewModels="clr-namespace:Maux.Sample.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Maux.Sample.Pages.AppointmentPage"
+             x:DataType="viewModels:AppointmentPageModel"
+             Title=""
+             Background="{StaticResource Primary}">
+    <VerticalStackLayout Padding="32,16">
+        <toolkit:AvatarView 
+            ImageSource="{Binding Appointment.Customer.AvatarUrl}" 
+            WidthRequest="128"
+            HeightRequest="128"
+            />
+        <Label Text="{Binding Appointment.Customer.FullName}"
+               FontSize="Title"
+               HorizontalTextAlignment="Center"
+               Margin="16,16,16,0"
+               FontAttributes="Bold"
+               TextColor="White"/>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label 
+                Text="{Binding Appointment.Date, StringFormat='{0} @'}"
+                FontSize="Small"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                Text="{Binding Appointment.Time, StringFormat=' {0}'}"
+                FontSize="Small"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="End" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</maux:MauxShellPage>

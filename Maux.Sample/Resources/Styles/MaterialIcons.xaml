@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- https://fonts.google.com/icons?icon.set=Material+Icons&icon.style=Rounded -->
+    <x:String x:Key="IconAdd">&#xe145;</x:String>
+    <x:String x:Key="IconCalendarMonth">&#xebcc;</x:String>
+    <x:String x:Key="IconClose">&#xe5cd;</x:String>
+    <x:String x:Key="IconDeleteForever">&#xe92b;</x:String>
+    <x:String x:Key="IconLocationOn">&#xe0c8;</x:String>
+    <x:String x:Key="IconLogout">&#xe9ba;</x:String>
+    <x:String x:Key="IconPerson">&#xe7fd;</x:String>
+    <x:String x:Key="IconPersonAdd">&#xe7fe;</x:String>
+    <x:String x:Key="IconSettings">&#xe8b8;</x:String>
+</ResourceDictionary>
