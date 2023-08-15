@@ -20,7 +20,7 @@ public interface IMauxPageModel
 /// Defines a base implementation of a view model to be used in a page
 /// </summary>
 [PublicAPI]
-public abstract class MauxPageModel : ObservableObject, IMauxPageModel
+public abstract class MauxPageModel : ObservableValidator, IMauxPageModel
 {
     private SemaphoreSlim _initializeLock = new(1, 1);
     private bool _isPreparing = true;
