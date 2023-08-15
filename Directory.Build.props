@@ -1,9 +1,0 @@
-<Project>
-    <PropertyGroup>
-        <Authors>Alberto Aldegheri</Authors>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Include="..\LICENSE" Visible="false" Pack="true" PackagePath=""/>
-    </ItemGroup>
-</Project>
