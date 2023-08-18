@@ -28,7 +28,16 @@ public class ScopedRouteFactory<T> : RouteFactory
         var scope = services.CreateScope();
         
         var element = scope.ServiceProvider.GetRequiredService<T>();
-        element.Unloaded += (_, _) => scope.Dispose();
+
+        EventHandler? handler = null;
+
+        handler = (_, _) =>
+        {
+            element.Unloaded -= handler;
+            scope.Dispose();
+        };
+
+        element.Unloaded += handler;
 
         return element;
     }
